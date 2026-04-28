@@ -10,15 +10,17 @@ Anggota:
 
 Project ini adalah aplikasi peta sederhana berbasis JavaScript untuk menambah, melihat, dan menghapus marker di peta.
 
+Marker tidak disimpan ke backend. Data koordinat dikelola manual lewat file `data/markers.json`.
+
 ## Cara Menjalankan
 
-1. Buka file `index.html` di browser.
-2. Klik peta untuk menambahkan marker baru.
-3. Gunakan tombol `Gunakan Lokasi Saya` untuk memusatkan peta ke lokasi saat ini.
-4. Gunakan tombol `Hapus Semua Marker` untuk membersihkan marker yang sudah dibuat.
+1. Jalankan lewat local server, misalnya VS Code Live Server.
+2. Buka file `data/markers.json` untuk menambah atau mengubah koordinat marker.
+3. Refresh halaman setelah file JSON diubah.
 
 ## Struktur
 
 - `index.html` - tampilan utama aplikasi
 - `style.css` - styling aplikasi
-- `app.js` - logika peta dan marker
+- `js/app.js` - logika peta dan marker
+- `data/markers.json` - data marker yang diisi manual
