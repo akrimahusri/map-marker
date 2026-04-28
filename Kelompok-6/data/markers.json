@@ -68,6 +68,20 @@
     "title": "Museum Tsunami Aceh",
     "category": "sejarah",
     "description": "Museum Tsunami Aceh adalah museum peringatan bencana tsunami di Banda Aceh, Aceh, Indonesia."
+  },
+  {
+    "lat": 5.5462350238923745,
+    "lng": 95.31621157968662,
+    "title": "Taman Putro Phang",
+    "category": "wisata",
+    "description": "Taman kota dan ruang publik di Banda Aceh."
+  },
+  {
+    "lat": 5.486740786565854,
+    "lng": 95.22618302201522,
+    "title": "Pantai Lampuuk",
+    "category": "wisata",
+    "description": "Wisata pantai populer di Aceh Besar."
   }
 ]
 
