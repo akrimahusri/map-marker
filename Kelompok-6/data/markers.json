@@ -3,127 +3,147 @@
     "lat": 5.5512,
     "lng": 95.3235,
     "title": "Mie Aceh Razali",
+    "category": "kuliner",
     "description": "Warung Makan - Legendaris Mie Aceh"
   },
   {
     "lat": 5.5550,
     "lng": 95.3180,
     "title": "Warung Kopi Solong",
+    "category": "kuliner",
     "description": "Warung Makan - Kopi Ulee Kareng"
   },
   {
     "lat": 5.5480,
     "lng": 95.3250,
     "title": "Ayam Tangkap Cut Dek",
+    "category": "kuliner",
     "description": "Warung Makan - Khas Ayam Tangkap"
   },
   {
     "lat": 5.5495,
     "lng": 95.3188,
     "title": "Museum Tsunami Aceh",
+    "category": "sejarah",
     "description": "Wisata Edukasi - Museum Tsunami"
   },
   {
     "lat": 5.5446,
     "lng": 95.3238,
     "title": "Masjid Raya Baiturrahman",
+    "category": "ibadah",
     "description": "Wisata Religi - Ikon Kota Banda Aceh"
   },
   {
     "lat": 5.5393,
     "lng": 95.3056,
     "title": "PLTD Apung",
+    "category": "sejarah",
     "description": "Wisata Sejarah - Kapal Terdampar"
   },
   {
     "lat": 5.5457,
     "lng": 95.3259,
     "title": "Taman Sari",
+    "category": "wisata",
     "description": "Taman Kota - Tempat Santai"
   },
   {
     "lat": 5.5786,
     "lng": 95.3429,
     "title": "Kuburan Massal Siron",
+    "category": "sejarah",
     "description": "Situs Sejarah - Peringatan Tsunami"
   },
   {
     "lat": 5.5463,
     "lng": 95.3242,
     "title": "Pasar Aceh",
+    "category": "wisata",
     "description": "Pusat Perbelanjaan - Oleh-oleh Khas"
   },
   {
     "lat": 5.5332,
     "lng": 95.2952,
     "title": "Pantai Ulee Lheue",
+    "category": "wisata",
     "description": "Wisata Alam - Pemandangan Laut"
   },
   {
     "lat": 5.577157407343703,
     "lng": 95.39792698873168,
     "title": "Masjid Jamik Baitul Ahad Mukim Siem",
+    "category": "ibadah",
     "description": "Masjid Jamik Baitul Ahad Mukim Siem adalah sebuah masjid yang terletak di Mukim Siem, Kabupaten Aceh Besar, Provinsi Aceh, Indonesia."
   },
   {
     "lat": 5.548074253028026,
     "lng": 95.31527257225693,
     "title": "Museum Tsunami Aceh",
+    "category": "sejarah",
     "description": "Museum Tsunami Aceh adalah museum peringatan bencana tsunami di Banda Aceh, Aceh, Indonesia."
   },
-    {
+  {
     "lat": 5.5457545659208165,
     "lng": 95.34568420403745,
     "title": "Masjid Haji Keuchik Leumiek",
+    "category": "ibadah",
     "description": "Masjid Haji Keuchik Leumiek adalah sebuah masjid yang terletak di Leumiek, Kabupaten Aceh Besar, Provinsi Aceh, Indonesia."
   },
   {
     "lat": 5.557385645716468,
     "lng": 95.31799585790922,
     "title": "Masjid Raya Baiturrahman",
+    "category": "ibadah",
     "description": "Masjid Raya Baiturrahman adalah sebuah masjid yang terletak di Banda Aceh, Kabupaten Aceh Besar, Provinsi Aceh, Indonesia."
   },
   {
     "lat": 5.559136901999561,
     "lng": 95.28410500776835,
     "title": "Masjid Baiturrahim - Ulee Lheue",
+    "category": "ibadah",
     "description": "Masjid Baiturrahim adalah sebuah masjid yang terletak di Ulee Lheue, Kabupaten Aceh Besar, Provinsi Aceh, Indonesia."
   },
   {
     "lat": 5.478894336285956,
     "lng": 95.33849159486083,
     "title": "Masjid Baitul Kiram",
+    "category": "ibadah",
     "description": "Masjid Baitul Kiram adalah sebuah masjid yang terletak di Gampong Biluy, Kabupaten Aceh Besar, Provinsi Aceh, Indonesia."
   },
   {
     "lat": 5.535766813861985,
     "lng": 95.32145871305006,
     "title": "Masjid Baiturrahim Ateuk Jawo",
+    "category": "ibadah",
     "description": "Masjid Baiturrahim Ateuk Jawo adalah sebuah masjid yang terletak di Ateuk Jawo, Kecamatan Baiturrahman, Kota Banda Aceh, Provinsi Aceh, Indonesia."
   },
   {
     "lat": 5.536897402680735,
     "lng": 95.30727861389899,
     "title": "Masjid Baitul Musyahadah",
+    "category": "ibadah",
     "description": "Masjid Baitul Musyahadah adalah sebuah masjid yang terletak di Jl. Teuku Umar, Kota Banda Aceh, Provinsi Aceh, Indonesia."
   },
   {
     "lat": 5.545952937168843,
     "lng": 95.30592678060952,
     "title": "Masjid Subulussalam",
+    "category": "ibadah",
     "description": "Masjid Subulussalam adalah sebuah masjid yang terletak di Gampong Pungee Blang Cut, Kota Banda Aceh, Provinsi Aceh, Indonesia."
   },
   {
     "lat": 5.551474816522277,
     "lng": 95.3030064041324,
     "title": "Masjid Miftahul Jannah",
+    "category": "ibadah",
     "description": "Masjid Miftahul Jannah adalah sebuah masjid yang terletak di Kecamatan Meuraxa, Kota Banda Aceh, Provinsi Aceh, Indonesia."
   },
   {
     "lat": 5.562403875240261,
     "lng": 95.29630772938387,
     "title": "Masjid Al-Uswah",
+    "category": "ibadah",
     "description": "Masjid Al-Uswah adalah sebuah masjid yang terletak di Kecamatan Meuraxa, Kota Banda Aceh, Provinsi Aceh, Indonesia."
   }
 ]
-
