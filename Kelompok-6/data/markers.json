@@ -1,23 +1,5 @@
 [
   {
-    "lat": -6.200000,
-    "lng": 106.816666,
-    "title": "Marker 1",
-    "description": "Titik awal di Jakarta"
-  },
-  {
-    "lat": -6.914744,
-    "lng": 107.60981,
-    "title": "Marker 2",
-    "description": "Contoh titik Bandung"
-  },
-  {
-    "lat": -7.257472,
-    "lng": 112.75209,
-    "title": "Marker 3",
-    "description": "Contoh titik Surabaya"
-  },
-  {
     "lat": 5.5512,
     "lng": 95.3235,
     "title": "Mie Aceh Razali",
