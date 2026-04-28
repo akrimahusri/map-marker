@@ -8,7 +8,7 @@ const statusText = document.getElementById('status-text');
 const searchInput = document.getElementById('search-input');
 const searchBtn = document.getElementById('search-btn');
 
-const initialView = [-6.2, 106.816666];
+const initialView = [5.5483, 95.3238];
 let activeCategory = 'all';
 
 const categoryColors = {
@@ -25,7 +25,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors',
 }).addTo(map);
 
-map.setView(initialView, 12);
+map.setView(initialView, 13);
 
 // STATUS
 function setStatus(message) {

@@ -8,18 +8,34 @@ Anggota:
 
 ## Ringkasan
 
-Project ini adalah aplikasi peta sederhana berbasis JavaScript untuk menambah, melihat, dan menghapus marker di peta.
+Project ini adalah aplikasi peta sederhana berbasis JavaScript untuk menampilkan lokasi marker pada peta interaktif.
 
-Marker tidak disimpan ke backend. Data koordinat dikelola manual lewat file `data/markers.json`.
+Data koordinat tidak disimpan ke backend. Semua marker dikelola secara manual melalui file `data/markers.json`.
 
-Setiap marker memiliki kategori `wisata`, `kuliner`, `sejarah`, atau `ibadah` sehingga bisa difilter dari UI.
+Setiap marker memiliki kategori `wisata`, `kuliner`, `sejarah`, atau `ibadah`. Kategori ini digunakan untuk filter, legenda, dan warna ikon marker.
+
+## Fitur
+
+- Menampilkan marker dari file JSON lokal.
+- Memfilter marker berdasarkan kategori.
+- Menampilkan legenda warna untuk setiap kategori.
+- Menggunakan ikon marker berbeda sesuai kategori.
+- Memudahkan penambahan atau perubahan data marker langsung di `data/markers.json`.
 
 ## Cara Menjalankan
 
-1. Jalankan lewat local server, misalnya VS Code Live Server.
+1. Jalankan project melalui local server, misalnya VS Code Live Server.
 2. Buka file `data/markers.json` untuk menambah atau mengubah koordinat marker.
-3. Refresh halaman setelah file JSON diubah.
-4. Gunakan tombol kategori di atas peta untuk memfilter marker.
+3. Refresh halaman setelah file JSON diperbarui.
+4. Gunakan tombol kategori untuk memfilter marker.
+5. Perhatikan legenda warna untuk mengetahui arti tiap kategori.
+
+## Kategori Marker
+
+- `wisata` - tempat wisata, ruang publik, dan area rekreasi.
+- `kuliner` - tempat makan dan minuman.
+- `sejarah` - lokasi bersejarah atau monumen.
+- `ibadah` - tempat ibadah.
 
 ## Struktur
 
