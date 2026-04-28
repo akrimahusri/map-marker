@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Map Marker - Kelompok 6</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Kelompok 6</p>
+        <h1>Map Marker</h1>
+        <p class="lede">Klik peta untuk menambahkan marker, gunakan lokasi saat ini untuk memusatkan peta, atau hapus semua marker kapan pun diperlukan.</p>
+      </div>
+
+      <div class="actions">
+        <button id="locate-btn" type="button">Gunakan Lokasi Saya</button>
+        <button id="clear-btn" type="button" class="secondary">Hapus Semua Marker</button>
+      </div>
+    </section>
+
+    <section class="stats" aria-live="polite">
+      <article>
+        <span class="label">Marker aktif</span>
+        <strong id="marker-count">0</strong>
+      </article>
+      <article>
+        <span class="label">Posisi terakhir</span>
+        <strong id="status-text">Klik peta untuk menambah marker</strong>
+      </article>
+    </section>
+
+    <section class="map-frame">
+      <div id="map" aria-label="Peta interaktif"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
