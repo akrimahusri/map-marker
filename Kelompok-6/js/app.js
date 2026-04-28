@@ -1,11 +1,13 @@
-const map = L.map('map', {
-  zoomControl: true,
-});
+const map = L.map('map', { zoomControl: true });
 
 const markers = [];
 const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
 const markerCount = document.getElementById('marker-count');
 const statusText = document.getElementById('status-text');
+
+const searchInput = document.getElementById('search-input');
+const searchBtn = document.getElementById('search-btn');
+
 const initialView = [-6.2, 106.816666];
 let activeCategory = 'all';
 
@@ -17,28 +19,20 @@ const categoryColors = {
   default: '#5d6a65',
 };
 
-const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+// MAP TILE
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
   attribution: '&copy; OpenStreetMap contributors',
-});
-
-
-tiles.addTo(map);
+}).addTo(map);
 
 map.setView(initialView, 12);
 
-function syncMarkerCount() {
-  const visibleCount = markers.filter((entry) => {
-    return activeCategory === 'all' || entry.category === activeCategory;
-  }).length;
-
-  markerCount.textContent = String(visibleCount);
-}
-
+// STATUS
 function setStatus(message) {
-  statusText.textContent = message;
+  if (statusText) statusText.textContent = message;
 }
 
+// MARKER ICON
 function createMarkerIcon(category) {
   const color = categoryColors[category] || categoryColors.default;
 
@@ -51,7 +45,19 @@ function createMarkerIcon(category) {
   });
 }
 
+// COUNT
+function syncMarkerCount() {
+  const visibleCount = markers.filter((entry) => {
+    return activeCategory === 'all' || entry.category === activeCategory;
+  }).length;
+
+  markerCount.textContent = String(visibleCount);
+}
+
+// ADD MARKER
 function addMarker(markerData) {
+  if (Math.abs(markerData.lat) > 90 || Math.abs(markerData.lng) > 180) return;
+
   const latlng = [markerData.lat, markerData.lng];
   const category = markerData.category || 'wisata';
   const title = markerData.title || `${markerData.lat}, ${markerData.lng}`;
@@ -60,9 +66,10 @@ function addMarker(markerData) {
     icon: createMarkerIcon(category),
   }).addTo(map);
 
-  // 🔥 Popup + tombol delete
+  marker.myTitle = (title || "").toLowerCase();
+
   const popupContent = `
-    <div class="popup-content">
+    <div>
       <strong>${title}</strong><br/>
       <button class="delete-btn">🗑 Hapus</button>
     </div>
@@ -70,7 +77,6 @@ function addMarker(markerData) {
 
   marker.bindPopup(popupContent);
 
-  // Tooltip
   if (markerData.description) {
     marker.bindTooltip(markerData.description, {
       direction: 'top',
@@ -78,111 +84,121 @@ function addMarker(markerData) {
     });
   }
 
-  // 🔥 Simpan dengan struktur konsisten
   const entry = { marker, category };
   markers.push(entry);
 
-  // 🔥 Event delete
+  // DELETE HANDLER
   marker.on('popupopen', () => {
-    const deleteBtn = document.querySelector('.delete-btn');
+    const btn = document.querySelector('.delete-btn');
 
-    if (deleteBtn) {
-      deleteBtn.addEventListener('click', () => {
-        const confirmDelete = confirm(`Yakin ingin menghapus marker "${title}"?`);
+    if (btn) {
+      btn.onclick = () => {
+        const confirmDelete = confirm(`Hapus marker "${title}"?`);
         if (!confirmDelete) return;
 
         map.removeLayer(marker);
 
-        // hapus dari array (pakai entry, bukan marker langsung)
         const index = markers.indexOf(entry);
-        if (index !== -1) {
-          markers.splice(index, 1);
-        }
+        if (index !== -1) markers.splice(index, 1);
 
         syncMarkerCount();
         setStatus(`Marker "${title}" dihapus.`);
-      });
+      };
     }
   });
 
   return marker;
 }
 
+// FILTER
 function applyFilter() {
   markers.forEach((entry) => {
-    const shouldShow = activeCategory === 'all' || entry.category === activeCategory;
+    const show =
+      activeCategory === 'all' || entry.category === activeCategory;
 
-    if (shouldShow) {
-      if (!map.hasLayer(entry.marker)) {
-        entry.marker.addTo(map);
-      }
-      return;
-    }
-
-    if (map.hasLayer(entry.marker)) {
-      map.removeLayer(entry.marker);
+    if (show) {
+      if (!map.hasLayer(entry.marker)) entry.marker.addTo(map);
+    } else {
+      if (map.hasLayer(entry.marker)) map.removeLayer(entry.marker);
     }
   });
 
   syncMarkerCount();
 
-  const label = activeCategory === 'all'
-    ? 'semua kategori'
-    : `kategori ${activeCategory}`;
-
-  setStatus(`Menampilkan marker untuk ${label}.`);
+  setStatus(
+    activeCategory === 'all'
+      ? 'Menampilkan semua marker.'
+      : `Menampilkan kategori ${activeCategory}.`
+  );
 }
 
 function setActiveFilter(category) {
   activeCategory = category;
 
-  filterButtons.forEach((button) => {
-    button.classList.toggle('active', button.dataset.category === category);
+  filterButtons.forEach((btn) => {
+    btn.classList.toggle('active', btn.dataset.category === category);
   });
 
   applyFilter();
 }
 
-filterButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    setActiveFilter(button.dataset.category);
+// FILTER EVENTS
+filterButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    setActiveFilter(btn.dataset.category);
   });
 });
 
+// SEARCH
+function performSearch() {
+  const query = searchInput.value.toLowerCase();
+  const filtered = [];
+
+  markers.forEach((entry) => {
+    if (entry.marker.myTitle.includes(query)) {
+      if (!map.hasLayer(entry.marker)) entry.marker.addTo(map);
+      filtered.push(entry.marker);
+    } else {
+      if (map.hasLayer(entry.marker)) map.removeLayer(entry.marker);
+    }
+  });
+
+  if (filtered.length) {
+    const group = new L.featureGroup(filtered);
+    map.fitBounds(group.getBounds().pad(0.1));
+    setStatus(`Ditemukan ${filtered.length} lokasi.`);
+  } else {
+    setStatus("Tidak ditemukan.");
+  }
+}
+
+searchBtn.addEventListener('click', performSearch);
+searchInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') performSearch();
+});
+
+// LOAD DATA
 async function loadMarkers() {
   try {
-    const response = await fetch('data/markers.json', { cache: 'no-store' });
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
-    }
-
-    const markerDataList = await response.json();
-
-    if (!Array.isArray(markerDataList)) {
-      throw new Error('Format markers.json harus berupa array');
-    }
-
-    markerDataList.forEach((markerData) => {
-      if (
-        typeof markerData.lat !== 'number' ||
-        typeof markerData.lng !== 'number'
-      ) {
-        return;
-      }
-
-      addMarker(markerData);
+    const response = await fetch('data/markers.json', {
+      cache: 'no-store',
     });
 
-    if (markers.length === 0) {
-      setStatus('markers.json belum berisi marker.');
-      return;
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const data = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error('markers.json harus array');
     }
 
-    applyFilter();
-  } catch (error) {
-    setStatus('Gagal memuat markers.json. Jalankan via server lokal dan cek isi file.');
-    console.error('Failed to load markers.json:', error);
+    data.forEach(addMarker);
+
+    syncMarkerCount();
+    setStatus(`Berhasil memuat ${markers.length} marker.`);
+  } catch (err) {
+    console.error(err);
+    setStatus("Gagal memuat data (gunakan Live Server)");
   }
 }
 
