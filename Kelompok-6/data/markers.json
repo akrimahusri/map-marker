@@ -1,61 +1,67 @@
 [
   {
-    "lat": 5.5512,
-    "lng": 95.3235,
+    "lat": 55.558720102860385, 
+    "lng": 95.32127139330959,
     "title": "Mie Aceh Razali",
     "description": "Warung Makan - Legendaris Mie Aceh"
   },
   {
-    "lat": 5.5550,
-    "lng": 95.3180,
+    "lat": 5.552647505913117, 
+    "lng": 95.35609154023996,
     "title": "Warung Kopi Solong",
     "description": "Warung Makan - Kopi Ulee Kareng"
   },
   {
-    "lat": 5.5480,
-    "lng": 95.3250,
+    "lat": 5.557205425070029, 
+    "lng": 95.34453490683056,
     "title": "Ayam Tangkap Cut Dek",
     "description": "Warung Makan - Khas Ayam Tangkap"
   },
   {
-    "lat": 5.5495,
-    "lng": 95.3188,
-    "title": "Museum Tsunami Aceh",
-    "description": "Wisata Edukasi - Museum Tsunami"
+    "lat": 5.529878777299449, 
+    "lng": 95.32080530052968,
+    "title": "Mie Aceh Ayah",
+    "description": "Mie Aceh dengan bumbu rempah yang kuat."
   },
   {
-    "lat": 5.5446,
-    "lng": 95.3238,
-    "title": "Masjid Raya Baiturrahman",
-    "description": "Wisata Religi - Ikon Kota Banda Aceh"
+    "lat": 5.611299345696159, 
+    "lng": 95.3281622334154,
+    "title": "Nasi Kambing Lem Bakrie",
+    "description": "Terkenal dengan olahan daging kambing yang empuk."
   },
   {
-    "lat": 5.5393,
-    "lng": 95.3056,
+    "lat": 5.560101857884987, 
+    "lng": 95.34704501154974,
+    "title": "Rumah Makan Hasan",
+    "description": "Sajian masakan Aceh rumahan yang otentik."
+  },
+  {
+    "lat": 5.546578014890827,
+    "lng": 95.30686085101692,
     "title": "PLTD Apung",
     "description": "Wisata Sejarah - Kapal Terdampar"
   },
   {
-    "lat": 5.5457,
-    "lng": 95.3259,
+    "lat": 5.54732551662263, 
+    "lng": 95.31596426881138,
     "title": "Taman Sari",
     "description": "Taman Kota - Tempat Santai"
   },
   {
-    "lat": 5.5786,
-    "lng": 95.3429,
+    "lat": 5.511517039413047,
+    "lng": 95.36574850684742,
     "title": "Kuburan Massal Siron",
     "description": "Situs Sejarah - Peringatan Tsunami"
   },
   {
-    "lat": 5.5463,
-    "lng": 95.3242,
+    "lat": 5.556362568548234, 
+    "lng": 995.3153292933411,
     "title": "Pasar Aceh",
     "description": "Pusat Perbelanjaan - Oleh-oleh Khas"
   },
   {
-    "lat": 5.5332,
-    "lng": 95.2952,
+    "lat": 5.560222047837817, 
+    "lng": 95.28534359814415,
     "title": "Pantai Ulee Lheue",
     "description": "Wisata Alam - Pemandangan Laut"
   },
