@@ -18,22 +18,10 @@
     "description": "Warung Makan - Khas Ayam Tangkap"
   },
   {
-    "lat": 5.5495,
-    "lng": 95.3188,
-    "title": "Museum Tsunami Aceh",
-    "description": "Wisata Edukasi - Museum Tsunami"
-  },
-  {
     "lat": 5.5446,
     "lng": 95.3238,
     "title": "Masjid Raya Baiturrahman",
     "description": "Wisata Religi - Ikon Kota Banda Aceh"
-  },
-  {
-    "lat": 5.5393,
-    "lng": 95.3056,
-    "title": "PLTD Apung",
-    "description": "Wisata Sejarah - Kapal Terdampar"
   },
   {
     "lat": 5.5457,
@@ -70,6 +58,11 @@
     "lng": 95.31527257225693,
     "title": "Museum Tsunami Aceh",
     "description": "Museum Tsunami Aceh adalah museum peringatan bencana tsunami di Banda Aceh, Aceh, Indonesia."
+  },
+  {
+    "lat": 5.546425577003823,
+    "lng": 95.30681524842109,
+    "title": "PLTD Apung",
+    "description": "PLTD Apung adalah kapal pembangkit listrik yang terseret tsunami dan menjadi monumen bersejarah di Banda Aceh."
   }
 ]
-
