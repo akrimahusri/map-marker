@@ -167,6 +167,32 @@ button.secondary {
   box-shadow: none;
 }
 
+.popup-content {
+  font-family: 'Space Grotesk', sans-serif;
+  text-align: center;
+}
+
+.delete-btn {
+  margin-top: 6px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ef4444;
+  color: white;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
+  transform: scale(1.05);
+}
+
+.delete-btn:active {
+  transform: scale(0.95);
+}
+
 .stats {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

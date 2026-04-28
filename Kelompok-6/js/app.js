@@ -22,6 +22,7 @@ const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
   attribution: '&copy; OpenStreetMap contributors',
 });
 
+
 tiles.addTo(map);
 
 map.setView(initialView, 12);
@@ -53,22 +54,56 @@ function createMarkerIcon(category) {
 function addMarker(markerData) {
   const latlng = [markerData.lat, markerData.lng];
   const category = markerData.category || 'wisata';
+  const title = markerData.title || `${markerData.lat}, ${markerData.lng}`;
+
   const marker = L.marker(latlng, {
     icon: createMarkerIcon(category),
   }).addTo(map);
-  const popupText = markerData.title || `${markerData.lat}, ${markerData.lng}`;
-  marker.bindPopup(popupText);
-  markers.push({
-    marker,
-    category,
-  });
 
+  // 🔥 Popup + tombol delete
+  const popupContent = `
+    <div class="popup-content">
+      <strong>${title}</strong><br/>
+      <button class="delete-btn">🗑 Hapus</button>
+    </div>
+  `;
+
+  marker.bindPopup(popupContent);
+
+  // Tooltip
   if (markerData.description) {
     marker.bindTooltip(markerData.description, {
       direction: 'top',
       sticky: true,
     });
   }
+
+  // 🔥 Simpan dengan struktur konsisten
+  const entry = { marker, category };
+  markers.push(entry);
+
+  // 🔥 Event delete
+  marker.on('popupopen', () => {
+    const deleteBtn = document.querySelector('.delete-btn');
+
+    if (deleteBtn) {
+      deleteBtn.addEventListener('click', () => {
+        const confirmDelete = confirm(`Yakin ingin menghapus marker "${title}"?`);
+        if (!confirmDelete) return;
+
+        map.removeLayer(marker);
+
+        // hapus dari array (pakai entry, bukan marker langsung)
+        const index = markers.indexOf(entry);
+        if (index !== -1) {
+          markers.splice(index, 1);
+        }
+
+        syncMarkerCount();
+        setStatus(`Marker "${title}" dihapus.`);
+      });
+    }
+  });
 
   return marker;
 }
