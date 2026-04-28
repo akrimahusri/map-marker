@@ -16,5 +16,65 @@
     "lng": 112.75209,
     "title": "Marker 3",
     "description": "Contoh titik Surabaya"
+  },
+  {
+    "lat": 5.5512,
+    "lng": 95.3235,
+    "title": "Mie Aceh Razali",
+    "description": "Warung Makan - Legendaris Mie Aceh"
+  },
+  {
+    "lat": 5.5550,
+    "lng": 95.3180,
+    "title": "Warung Kopi Solong",
+    "description": "Warung Makan - Kopi Ulee Kareng"
+  },
+  {
+    "lat": 5.5480,
+    "lng": 95.3250,
+    "title": "Ayam Tangkap Cut Dek",
+    "description": "Warung Makan - Khas Ayam Tangkap"
+  },
+  {
+    "lat": 5.5495,
+    "lng": 95.3188,
+    "title": "Museum Tsunami Aceh",
+    "description": "Wisata Edukasi - Museum Tsunami"
+  },
+  {
+    "lat": 5.5446,
+    "lng": 95.3238,
+    "title": "Masjid Raya Baiturrahman",
+    "description": "Wisata Religi - Ikon Kota Banda Aceh"
+  },
+  {
+    "lat": 5.5393,
+    "lng": 95.3056,
+    "title": "PLTD Apung",
+    "description": "Wisata Sejarah - Kapal Terdampar"
+  },
+  {
+    "lat": 5.5457,
+    "lng": 95.3259,
+    "title": "Taman Sari",
+    "description": "Taman Kota - Tempat Santai"
+  },
+  {
+    "lat": 5.5786,
+    "lng": 95.3429,
+    "title": "Kuburan Massal Siron",
+    "description": "Situs Sejarah - Peringatan Tsunami"
+  },
+  {
+    "lat": 5.5463,
+    "lng": 95.3242,
+    "title": "Pasar Aceh",
+    "description": "Pusat Perbelanjaan - Oleh-oleh Khas"
+  },
+  {
+    "lat": 5.5332,
+    "lng": 95.2952,
+    "title": "Pantai Ulee Lheue",
+    "description": "Wisata Alam - Pemandangan Laut"
   }
 ]
