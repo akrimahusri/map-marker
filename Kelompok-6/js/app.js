@@ -3,9 +3,19 @@ const map = L.map('map', {
 });
 
 const markers = [];
+const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
 const markerCount = document.getElementById('marker-count');
 const statusText = document.getElementById('status-text');
 const initialView = [-6.2, 106.816666];
+let activeCategory = 'all';
+
+const categoryColors = {
+  wisata: '#0f6c5f',
+  kuliner: '#c26a20',
+  sejarah: '#7a4ea3',
+  ibadah: '#2057b8',
+  default: '#5d6a65',
+};
 
 const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
@@ -17,19 +27,41 @@ tiles.addTo(map);
 map.setView(initialView, 12);
 
 function syncMarkerCount() {
-  markerCount.textContent = String(markers.length);
+  const visibleCount = markers.filter((entry) => {
+    return activeCategory === 'all' || entry.category === activeCategory;
+  }).length;
+
+  markerCount.textContent = String(visibleCount);
 }
 
 function setStatus(message) {
   statusText.textContent = message;
 }
 
+function createMarkerIcon(category) {
+  const color = categoryColors[category] || categoryColors.default;
+
+  return L.divIcon({
+    className: 'category-marker-icon',
+    html: `<span class="category-marker-dot" style="background:${color}"></span>`,
+    iconSize: [18, 18],
+    iconAnchor: [9, 9],
+    popupAnchor: [0, -8],
+  });
+}
+
 function addMarker(markerData) {
   const latlng = [markerData.lat, markerData.lng];
-  const marker = L.marker(latlng).addTo(map);
+  const category = markerData.category || 'wisata';
+  const marker = L.marker(latlng, {
+    icon: createMarkerIcon(category),
+  }).addTo(map);
   const popupText = markerData.title || `${markerData.lat}, ${markerData.lng}`;
   marker.bindPopup(popupText);
-  markers.push(marker);
+  markers.push({
+    marker,
+    category,
+  });
 
   if (markerData.description) {
     marker.bindTooltip(markerData.description, {
@@ -40,6 +72,47 @@ function addMarker(markerData) {
 
   return marker;
 }
+
+function applyFilter() {
+  markers.forEach((entry) => {
+    const shouldShow = activeCategory === 'all' || entry.category === activeCategory;
+
+    if (shouldShow) {
+      if (!map.hasLayer(entry.marker)) {
+        entry.marker.addTo(map);
+      }
+      return;
+    }
+
+    if (map.hasLayer(entry.marker)) {
+      map.removeLayer(entry.marker);
+    }
+  });
+
+  syncMarkerCount();
+
+  const label = activeCategory === 'all'
+    ? 'semua kategori'
+    : `kategori ${activeCategory}`;
+
+  setStatus(`Menampilkan marker untuk ${label}.`);
+}
+
+function setActiveFilter(category) {
+  activeCategory = category;
+
+  filterButtons.forEach((button) => {
+    button.classList.toggle('active', button.dataset.category === category);
+  });
+
+  applyFilter();
+}
+
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    setActiveFilter(button.dataset.category);
+  });
+});
 
 async function loadMarkers() {
   try {
@@ -66,14 +139,12 @@ async function loadMarkers() {
       addMarker(markerData);
     });
 
-    syncMarkerCount();
-
     if (markers.length === 0) {
       setStatus('markers.json belum berisi marker.');
       return;
     }
 
-    setStatus(`Berhasil memuat ${markers.length} marker dari markers.json.`);
+    applyFilter();
   } catch (error) {
     setStatus('Gagal memuat markers.json. Jalankan via server lokal dan cek isi file.');
     console.error('Failed to load markers.json:', error);
